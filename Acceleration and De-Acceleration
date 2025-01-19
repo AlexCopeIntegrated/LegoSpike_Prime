@@ -1,0 +1,18 @@
+from hub import port
+import runloop
+import motor_pair
+
+async def main():
+    # Pair motors on port A and B
+    motor_pair.pair(motor_pair.PAIR_1, port.A, port.B)
+
+    # Move straight at default velocity for 90 degrees
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 90, 0)
+
+    # Move straight at a specific velocity
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 360, 0, velocity=280)
+
+    # Move straight at a specific velocity with a slow deceleration
+    await motor_pair.move_for_degrees(motor_pair.PAIR_1, 360, 0, velocity=280, deceleration=10)
+
+runloop.run(main())
