@@ -1,0 +1,20 @@
+from hub import light_matrix
+import runloop
+from hub import sound
+
+async def main():
+    # Display a message on the light matrix
+    light_matrix.write("Hi!")
+
+    # Make a beep sound
+    await sound.beep()
+
+    # Wait for 1 second before stopping the sound
+    await runloop.sleep_ms(1000)
+
+    # Stop any ongoing sound
+    sound.stop()
+
+runloop.run(main())
+
+
