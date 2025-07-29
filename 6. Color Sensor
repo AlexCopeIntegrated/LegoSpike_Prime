@@ -6,6 +6,7 @@ import motor_pair
 
 
 async def main():
+     """Create type annotation"""
     # Initialize motor pair
     motor_pair.pair(motor_pair.PAIR_1, port.E, port.B)
     motor = motor_pair
@@ -25,8 +26,7 @@ async def move_the_motors() -> None:
     # Create a motor pair using ports A and B
     moterz.pair(motor_pair.PAIR_1, port.E, port.B)
 
-    # Move s
-    traight for 2 seconds at a speed of 50
+    # Move straight for 2 seconds at a speed of 50
     moterz.move(motor_pair.PAIR_1, 100)
     # Wait for 2 seconds
     await runloop.sleep_ms(2000)
@@ -46,7 +46,8 @@ async def move_the_motors() -> None:
 
     #return motors, sensor
 
-def handle_color_behavior(color, motors):
+def handle_color_behavior(color, motors) -> None:
+     """Create type annotation"""
     # Color constants from LEGO SPIKE Prime API:
     RED = 9
     BLUE = 3
@@ -70,8 +71,8 @@ def handle_color_behavior(color, motors):
     print("Detected Color:", color)
     return True
 
-    
-def main_loop(motors, sensor):
+def main_loop(motors, sensor) -> None:
+     """Create type annotation"""
     try:
         while True:
             color = color_sensor.reflection(port.D)
